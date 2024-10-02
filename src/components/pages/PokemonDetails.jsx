@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useSearchParams } from 'react-router-dom';
 
 import { RiRulerLine, RiWeightLine } from 'react-icons/ri';
 import { FaArrowLeft } from 'react-icons/fa';
@@ -9,8 +9,8 @@ import LoadingSvg from '../layout/LoadingSvg';
 import PokemonStat from '../pokemon/PokemonStat';
 
 function PokemonDetails() {
-	const parameters = new URLSearchParams(window.location.search);
-	const id = parameters.get('id');
+	const [searchParams, setSearchParams] = useSearchParams();
+	const id = searchParams.get('id');
 	const navigate = useNavigate();
 
 	const [pokemon, setPokemon] = useState({});
@@ -30,7 +30,7 @@ function PokemonDetails() {
 		};
 
 		fetchPokemonList();
-	}, []);
+	}, [id]);
 
 	return (
 		<div className="m-auto w-full bg-white pb-16 pt-5 shadow-lg md:w-1/2 md:rounded-xl lg:w-1/2 lg:rounded-xl">
