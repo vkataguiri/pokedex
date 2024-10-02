@@ -49,7 +49,6 @@ Access the app using the link provided in your terminal.
 
 ## 🔜 Next steps
 
-- 🔄 Persist search queries on page reload
 - 🔥 Add Pokémon evolution details
 - 🧬 Enable search by Pokémon type
 - 🎭 Display details for special forms
