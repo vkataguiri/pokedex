@@ -74,15 +74,14 @@ function PokemonDetails() {
 							<span className="mt-3 text-sm font-light">Height</span>
 						</p>
 						<div className="flex w-full flex-col items-center justify-center gap-2">
-							{pokemon.moves && (
+							{pokemon.abilities ? (
 								<ul className="flex flex-col items-start">
-									<li className="flex items-center gap-2 capitalize">
-										{pokemon.moves[0].move.name || 'Loading move...'}
-									</li>
-									<li className="flex items-center gap-2 capitalize">
-										{pokemon.moves[1].move.name || 'Loading move...'}
-									</li>
+									{pokemon.abilities.map((abilityArr) => (
+										<li>{abilityArr.ability.name}</li>
+									))}
 								</ul>
+							) : (
+								console.err('Abilities array not found.')
 							)}
 							<span className="mt-3 text-sm font-light">Moves</span>
 						</div>
